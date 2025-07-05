@@ -214,7 +214,7 @@ import {
 import {
   nextTick,
   onBeforeMount,
-  ref,
+  ref, watch,
 } from 'vue'
 import {
   Notify,
@@ -260,6 +260,22 @@ useKeyboardListener({
     },
   },
 })
+
+watch(
+  language,
+  (v) => {
+    storeLanguage.value = cloneDeep(v)
+
+    void nextTick(() => {
+      Notify.create({
+        message: t('settingsSave'),
+        color: 'primary',
+        textColor: 'white',
+        timeout: 2000,
+      })
+    })
+  },
+)
 
 async function onSubmit () {
   const isValid = (await formRef.value?.validate()) ?? true
