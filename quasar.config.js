@@ -214,9 +214,9 @@ module.exports = configure(function (ctx) {
       // extendGenerateSWOptions (cfg) {}
       // extendInjectManifestOptions (cfg) {},
       extendManifestJson (json) {
-        json.name = 'kDrive Todo'
-        json.short_name = 'kDrive Todo'
-        json.description = 'kDrive Todo App'
+        json.name = 'kDrive Notes'
+        json.short_name = 'kDrive Notes'
+        json.description = 'kDrive Notes App'
       },
       // extendPWACustomSWConf (esbuildConf) {}
     },
