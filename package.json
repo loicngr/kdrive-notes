@@ -22,7 +22,7 @@
     "@vueuse/integrations": "^10.7.2",
     "axios": "^1.10.0",
     "localforage": "^1.10.0",
-    "lodash": "^4.17.21",
+    "lodash": "^4.17.23",
     "pinia": "^2.1.7",
     "quasar": "^2.14.3",
     "sortablejs": "^1.15.2",
