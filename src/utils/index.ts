@@ -74,8 +74,9 @@ export class HandleKeyboardListener {
   }
 }
 
-export function randomTimeId (length = 10) {
-  return Math.floor(Math.random() * Date.now()).toString(length)
+// `radix` is a numeric base (2-36) per Number.prototype.toString, not a target string length.
+export function randomTimeId (radix = 10) {
+  return Math.floor(Math.random() * Date.now()).toString(radix)
 }
 
 export function createSignal <V = unknown> (

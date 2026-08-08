@@ -24,6 +24,7 @@ export default {
   color: 'Couleur',
   fileEmptyOrInvalid: `Le fichier est vide ou le format n'est pas valide`,
   conflictDetected: `Conflit avec les notes du serveur détecté`,
+  writeFailed: `Échec de l'enregistrement sur le serveur`,
 
   createNewFile: 'Créer un nouveau fichier',
   text: 'Text',
