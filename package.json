@@ -1,6 +1,6 @@
 {
   "name": "kdrive-notes",
-  "version": "1.8.0",
+  "version": "1.9.1",
   "description": "A kDrive notes app",
   "productName": "kDrive notes",
   "author": "loicngr <loicnogier@ik.me>",
@@ -36,7 +36,7 @@
     "@quasar/app-vite": "^1.7.3",
     "@types/lodash": "^4.14.202",
     "@types/lodash.clonedeep": "^4.5.9",
-    "@types/node": "^12.20.55",
+    "@types/node": "^20.11.0",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
     "autoprefixer": "^10.4.17",
@@ -60,6 +60,9 @@
     "workbox-precaching": "^7.0.0",
     "workbox-routing": "^7.0.0",
     "workbox-strategies": "^7.0.0"
+  },
+  "overrides": {
+    "tar": "^7.5.22"
   },
   "engines": {
     "node": "^24 ||^20 || ^18 || ^16",

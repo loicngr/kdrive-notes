@@ -425,7 +425,7 @@ const {
   resume,
 } = useIntervalFn(
   () => {
-    if (hasDiff.value) {
+    if (!hasDiff.value) {
       void getFileContent()
     }
 
@@ -533,7 +533,15 @@ function createNewTodo () {
     void API.writeInFile(JSON.stringify({
       items: currentNotes,
     }))
-      .then(() => {
+      .then((status) => {
+        if (!status) {
+          Notify.create({
+            message: t('writeFailed'),
+            type: 'negative',
+          })
+          return
+        }
+
         void getFileContent(false)
       })
       .finally(() => {
@@ -559,7 +567,15 @@ function createNewText () {
     void API.writeInFile(JSON.stringify({
       items: currentNotes,
     }))
-      .then(() => {
+      .then((status) => {
+        if (!status) {
+          Notify.create({
+            message: t('writeFailed'),
+            type: 'negative',
+          })
+          return
+        }
+
         void getFileContent(false)
       })
       .finally(() => {
@@ -571,9 +587,8 @@ function createNewText () {
   }
 }
 
-function hasConflict (_newNotes: Item[]) {
-  const newNotes = cloneDeep(_newNotes)
-  const currentNotes = cloneDeep(baseNotes.value)
+function hasConflict (newNotes: Item[]) {
+  const currentNotes = baseNotes.value
 
   if (currentNotes.length === 0) {
     return false
@@ -695,6 +710,11 @@ function onSave () {
 
       if (status) {
         await getFileContent(false)
+      } else {
+        Notify.create({
+          message: t('writeFailed'),
+          type: 'negative',
+        })
       }
 
       Loading.hide()
@@ -727,6 +747,9 @@ function onFilter () {
 function openColorDialog (item: Item) {
   $q.dialog({
     component: DialogColorPicker,
+    componentProps: {
+      color: item.color,
+    },
   }).onOk((color: Item['color']) => {
     item.color = color
   })

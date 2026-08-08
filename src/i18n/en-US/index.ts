@@ -24,6 +24,7 @@ export default {
   color: 'Color',
   fileEmptyOrInvalid: 'File is empty, or format is invalid',
   conflictDetected: 'Conflict with server notes detected',
+  writeFailed: 'Failed to save on the server',
 
   createNewFile: 'Create a new file',
   text: 'Text',

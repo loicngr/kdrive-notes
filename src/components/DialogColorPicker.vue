@@ -57,7 +57,11 @@ defineEmits([
   ...useDialogPluginComponent.emits,
 ])
 
-const color = ref<string>('')
+const props = defineProps<{
+  color?: string
+}>()
+
+const color = ref<string>(props.color ?? '')
 
 const {
   dialogRef,
